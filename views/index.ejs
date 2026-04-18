@@ -1,0 +1,188 @@
+<%- include('partials/header') %>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <img src="<%= settings.hero_image || '/img/hero.png' %>" alt="DMIC Campus" class="hero-bg fade-in">
+        <div class="hero-content">
+            <h1 class="fade-up" style="animation-delay: 0.2s;"><%= settings.hero_title || 'Empowering Minds' %> <br><span><%= settings.hero_subtitle || 'Since 1982' %></span></h1>
+            <p class="fade-up" style="animation-delay: 0.4s;"><%= settings.school_name || 'Durga Modern Inter College Group' %> — <%= settings.motto || 'Discipline • Hard Work • Self-Confidence' %></p>
+            <div class="hero-btns fade-up" style="animation-delay: 0.6s;">
+                <a href="/admission" class="btn btn-primary shadow-lg">Admissions Open 2026-27</a>
+                <a href="#about-summary" class="btn btn-outline">Explore More <i data-lucide="chevron-down"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notice Board Section -->
+    <section class="notices-section fade-up" style="animation-delay: 0.8s;">
+        <div class="container">
+            <div class="notice-board">
+                <div class="notice-header">
+                    <i data-lucide="bell" class="float"></i>
+                    <span>Latest Updates</span>
+                </div>
+                <div class="notice-slider">
+                    <% if (notices && notices.length > 0) { %>
+                        <% notices.forEach(notice => { %>
+                            <div class="notice-item">
+                                <strong><%= notice.title %>:</strong> <%= notice.content %> <span class="notice-date">(<%= notice.date %>)</span>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <div class="notice-item">📢 CBSE Board Pattern | UK Board Affiliated | English Medium | Smart Classrooms | Transport Facility Available | Admissions Open 2026-27</div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats fade-up">
+        <div class="container">
+            <div class="stat-item">
+                <h2 class="counter" data-target="<%= settings.stat_years || '43' %>">0</h2>
+                <p>Years of Excellence</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="<%= settings.stat_students || '5000' %>">0</h2>
+                <p>Students Impacted</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="<%= settings.stat_posts || '651' %>">0</h2>
+                <p>Instagram Posts</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="<%= settings.stat_followers || '6521' %>">0</h2>
+                <p>Community Followers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Summary Section -->
+    <section id="about-summary" class="about">
+        <div class="container grid-2">
+            <div class="about-text slide-in">
+                <span class="section-tag">Legacy & Vision</span>
+                <h2><%= settings.about_summary_title || 'Holistic Education for a Brighter Future' %></h2>
+                <p><%= settings.about_summary_desc %></p>
+                <div class="leadership-mini">
+                    <p>Managed under the visionary leadership of <strong><%= settings.chairman_name %></strong> (Chairman) and DMIC leadership team, we ensure a safe and progressive environment for every student.</p>
+                </div>
+                <a href="/about" class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);">Read More About Us <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="about-image fade-in">
+                <div class="image-stack">
+                    <img src="/img/smart_class.png" alt="Smart Classroom" class="stack-img main">
+                    <div class="floating-card float">
+                        <i data-lucide="award"></i>
+                        <span>Board Merit 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Gallery -->
+    <section class="features-grid" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag">Excellence</span>
+                <h2>Why Choose <%= settings.school_short_name %>?</h2>
+            </div>
+            <div class="grid-card-container">
+                <% if (features && features.length > 0) { %>
+                    <% features.forEach((feat, index) => { %>
+                        <div class="card feat-card hover-lift fade-up" style="animation-delay: <%= index * 0.1 %>s">
+                            <div class="card-content">
+                                <i data-lucide="<%= feat.icon %>" style="color: var(--accent-dark)"></i>
+                                <h3><%= feat.title %></h3>
+                                <p><%= feat.description %></p>
+                                <% if (feat.image_path) { %>
+                                    <img src="<%= feat.image_path %>" alt="<%= feat.title %>" class="card-thumb" style="width: 100%; height: 120px; object-fit: cover; border-radius: 15px; margin-top: 1rem;">
+                                <% } %>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Achievements Section -->
+    <section class="wings" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag">Life at <%= settings.school_short_name %></span>
+                <h2>Events & Celebrations</h2>
+            </div>
+            <div class="grid-3">
+                <div class="wing-card hover-lift">
+                    <div class="wing-icon"><i data-lucide="bus" style="color: var(--accent-dark);"></i></div>
+                    <h3>Transport Facility</h3>
+                    <p>Safe and reliable school transport service covering all major areas around Manglaur and nearby villages.</p>
+                </div>
+                <div class="wing-card hover-lift highlight">
+                    <div class="wing-icon"><i data-lucide="users" style="color: var(--accent);"></i></div>
+                    <h3>Community Growth</h3>
+                    <p>Join our ever-growing family of empowered learners and dedicated educators.</p>
+                </div>
+                <div class="wing-card hover-lift">
+                    <div class="wing-icon"><i data-lucide="shield-check" style="color: var(--accent-dark);"></i></div>
+                    <h3>Safe Environment</h3>
+                    <p>CCTV monitored campus with 24/7 security ensures a worry-free learning journey for every child.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Connect Section -->
+    <section class="contact" style="padding: 6rem 0; background: var(--primary); color: white;">
+        <div class="container">
+            <div class="section-header fade-up" style="color: white;">
+                <span class="section-tag" style="color: var(--accent);">Stay Connected</span>
+                <h2 style="color: white;">Follow Our Digital Journey</h2>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="<%= settings.insta_url %>" target="_blank" class="btn btn-primary shadow-lg" style="display: flex; align-items: center; gap: 0.8rem; background: var(--accent);">
+                    <i data-lucide="instagram"></i> Follow on Instagram
+                </a>
+                <a href="<%= settings.youtube_url %>" target="_blank" class="btn btn-outline" style="display: flex; align-items: center; gap: 0.8rem; border-color: white; color: white;">
+                    <i data-lucide="youtube"></i> Subscribe on YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>
+
+<script>
+    // Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // Trigger counter when in view
+    const observer = new IntersectionObserver((entries) => {
+        if(entries[0].isIntersecting) animateCounters();
+    }, { threshold: 0.5 });
+
+    if(counters.length > 0) observer.observe(document.querySelector('.stats'));
+</script>

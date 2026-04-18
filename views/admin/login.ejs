@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | DMIC Group</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .login-page::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .login-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4rem 3rem;
+            border-radius: 32px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+        .login-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 2rem;
+            padding: 5px;
+            background: var(--white);
+        }
+        .login-card h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        .login-card p.subtitle {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 2.5rem;
+        }
+        .login-form .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .login-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .error-badge {
+            background: rgba(255, 77, 77, 0.1);
+            color: #ff4d4d;
+            padding: 0.8rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <img src="/img/logo.png" alt="DMIC Logo">
+            <h2>Portal Login</h2>
+            <p class="subtitle">Enter your secure credentials to manage the DMIC Group CMS.</p>
+            
+            <% if (error) { %>
+                <div class="error-badge"><i data-lucide="alert-circle" style="vertical-align: middle; margin-right: 5px;"></i> <%= error %></div>
+            <% } %>
+
+            <form action="/dmic-portal-login" method="POST" class="login-form">
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="System Password" required autofocus>
+                </div>
+                <button type="submit" class="btn-premium primary w-full" style="justify-content: center; width: 100%;">
+                    Access Dashboard <i data-lucide="arrow-right"></i>
+                </button>
+            </form>
+            
+            <p style="margin-top: 3rem; font-size: 0.85rem; color: rgba(255,255,255,0.4);">
+                Secured DMIC Console &copy; 2026<br>
+                Empowering Education Since 1982
+            </p>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

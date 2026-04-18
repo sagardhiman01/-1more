@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+
+    <section id="admission-page" class="sub-page">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Enroll Now</span>
+                <h1>Admissions Open for 2026-27</h1>
+                <p>Secure your child's future at Durga Modern Inter College Group.</p>
+            </div>
+
+            <div class="admission-grid grid-2">
+                <div class="admission-info">
+                    <h2>Admission Process</h2>
+                    <p>We welcome students from all backgrounds. The admission process is designed to be simple and transparent.</p>
+                    <ul class="process-steps">
+                        <li><strong>Step 1:</strong> Fill out the online registration form below.</li>
+                        <li><strong>Step 2:</strong> Our admission office will contact you for an interview.</li>
+                        <li><strong>Step 3:</strong> Finalize documents and uniform collection.</li>
+                    </ul>
+                    <div class="contact-card">
+                        <i data-lucide="phone-call"></i>
+                        <div>
+                            <span>Admission Helpline</span>
+                            <p>+91 63963 01298</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="premium-form-container fade-in">
+                    <% if (msg) { %>
+                        <div class="alert alert-success"><i data-lucide="check-circle"></i> <%= msg %></div>
+                    <% } %>
+                    <form action="/admission" method="POST">
+                        <div class="form-field">
+                            <label>Student's Full Name</label>
+                            <input type="text" name="student_name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Father's / Guardian's Name</label>
+                            <input type="text" name="father_name" placeholder="Mr. Smith" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Applying for Class</label>
+                            <select name="apply_class" required>
+                                <option value="">Select Target Class</option>
+                                <option value="Nursery">Nursery</option>
+                                <option value="LKG">LKG</option>
+                                <option value="UKG">UKG</option>
+                                <% for(let i=1; i<=12; i++) { %>
+                                    <option value="Class <%= i %>">Class <%= i %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label>Mobile Number</label>
+                            <input type="tel" name="phone" placeholder="+91 XXXX XXXX" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Residential Address</label>
+                            <textarea name="address" placeholder="Complete address for communication" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-premium primary w-full" style="justify-content: center; width: 100%;">
+                            Submit Admission Request <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>

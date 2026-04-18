@@ -1,0 +1,180 @@
+<%- include('partials/header') %>
+
+    <section id="gallery-page" class="sub-page">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag">Memories</span>
+                <h1><%= selectedCategory ? selectedCategory : 'Campus Gallery' %></h1>
+                <p><%= selectedCategory ? 'Viewing moments from ' + selectedCategory : 'Explore our school memories through special events and competitions.' %></p>
+                <% if (selectedCategory) { %>
+                    <a href="/gallery" class="btn btn-secondary mt-1" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="arrow-left"></i> Back to Categories
+                    </a>
+                <% } %>
+            </div>
+
+            <% if (!selectedCategory) { %>
+                <!-- Category Grid -->
+                <div class="category-grid">
+                    <% categories.forEach((cat, index) => { %>
+                        <a href="/gallery?category=<%= encodeURIComponent(cat.name) %>" class="category-box fade-up" style="animation-delay: <%= index * 0.05 %>s">
+                            <div class="category-icon">
+                                <i data-lucide="folder"></i>
+                            </div>
+                            <h3><%= cat.name %></h3>
+                            <span class="view-label">View Album <i data-lucide="chevron-right"></i></span>
+                        </a>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <!-- Image Grid for Selected Category -->
+                <div class="gallery-grid">
+                    <% if (gallery && gallery.length > 0) { %>
+                        <% gallery.forEach((item, index) => { %>
+                            <div class="gallery-item fade-up" style="animation-delay: <%= index * 0.1 %>s">
+                                <div class="gallery-card">
+                                    <img src="<%= item.image_path %>" alt="<%= item.title %>" loading="lazy">
+                                    <div class="gallery-overlay">
+                                        <h3><%= item.title %></h3>
+                                        <span><%= item.category %></span>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <div class="empty-state">
+                            <i data-lucide="image"></i>
+                            <p>No images found in this category yet. Uploading soon!</p>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+<style>
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .category-box {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        text-decoration: none;
+        color: var(--text-dark);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .category-box:hover {
+        transform: translateY(-10px);
+        background: var(--white);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border-color: var(--accent);
+    }
+
+    .category-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: white;
+        box-shadow: 0 8px 16px rgba(10, 106, 177, 0.2);
+    }
+
+    .category-box h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        font-family: 'Playfair Display', serif;
+        color: var(--primary);
+    }
+
+    .view-label {
+        font-size: 0.9rem;
+        color: var(--accent);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: gap 0.3s ease;
+    }
+
+    .category-box:hover .view-label {
+        gap: 0.8rem;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .gallery-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        background: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .gallery-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        color: white;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    .gallery-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .gallery-card:hover .gallery-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .gallery-overlay h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .gallery-overlay span {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+    }
+</style>
+
+<%- include('partials/footer') %>

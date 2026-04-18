@@ -1,0 +1,102 @@
+<%- include('partials/header') %>
+
+    <section id="about-page" class="sub-page">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Since <%= settings.founding_year %></span>
+                <h1>About <%= settings.school_name %></h1>
+                <p><%= settings.motto %> — <%= settings.motto_en %></p>
+            </div>
+
+            <!-- School Identity -->
+            <div class="about-card grid-2">
+                <div class="about-image">
+                    <img src="<%= settings.hero_image %>" alt="DMIC Campus" class="stack-img main">
+                </div>
+                <div class="about-text">
+                    <span class="section-tag">Who We Are</span>
+                    <h2>A Legacy of <span>Excellence</span></h2>
+                    <p><%= settings.about_summary_desc %></p>
+                    <p>Over <%= settings.stat_years %> years later, we stand as one of the most trusted educational institutions in the area. We follow <strong>CBSE Board Pattern</strong> and are affiliated with <strong>UK Board (Uttarakhand Board)</strong>. Our institution offers excellence in <strong>English Medium</strong> education.</p>
+                </div>
+            </div>
+
+            <!-- Director's Message -->
+            <div class="about-card grid-2" style="margin-top: 2rem;">
+                <div class="about-text">
+                    <span class="section-tag">Director's Message</span>
+                    <h2>A Vision for <span>the Future</span></h2>
+                    <blockquote class="principal-quote">
+                        "<%= settings.principal_message %>"
+                    </blockquote>
+                    <p><strong>- <%= settings.principal_name %></strong>, <%= settings.principal_desig %>.</p>
+                </div>
+                <div class="about-image" style="text-align: center;">
+                    <img src="/img/logo.png" alt="DMIC Logo" style="max-width: 300px; border-radius: 50%;">
+                </div>
+            </div>
+
+            <!-- Management Team -->
+            <div class="section-header" style="margin-top: 4rem;">
+                <span class="section-tag">Management</span>
+                <h2>Our Visionary <span>Leadership</span></h2>
+            </div>
+            <div class="grid-3" style="margin-bottom: 2rem;">
+                <div class="management-card text-center card-lift">
+                    <div class="m-icon"><i data-lucide="award"></i></div>
+                    <h3><%= settings.founder_name %></h3>
+                    <p class="desig"><%= settings.founder_desig %></p>
+                </div>
+                <div class="management-card text-center card-lift highlight">
+                    <div class="m-icon"><i data-lucide="user-check"></i></div>
+                    <h3><%= settings.chairman_name %></h3>
+                    <p class="desig"><%= settings.chairman_desig %></p>
+                </div>
+                <div class="management-card text-center card-lift">
+                    <div class="m-icon"><i data-lucide="heart"></i></div>
+                    <h3><%= settings.principal_name %></h3>
+                    <p class="desig"><%= settings.principal_desig %></p>
+                </div>
+            </div>
+
+            <!-- Campus Locations Summary -->
+            <div class="section-header" style="margin-top: 4rem;">
+                <span class="section-tag">At a Glance</span>
+                <h2>School Highlights</h2>
+            </div>
+            <div class="grid-3" style="margin-bottom: 4rem;">
+                <div class="wing-card">
+                    <div class="wing-icon"><i data-lucide="book-open"></i></div>
+                    <h3>CBSE Pattern</h3>
+                    <p>Following CBSE Board Pattern curriculum for comprehensive education.</p>
+                </div>
+                <div class="wing-card">
+                    <div class="wing-icon"><i data-lucide="award"></i></div>
+                    <h3>UK Board Affiliated</h3>
+                    <p>Officially affiliated with Uttarakhand Board for recognized examinations.</p>
+                </div>
+                <div class="wing-card">
+                    <div class="wing-icon"><i data-lucide="languages"></i></div>
+                    <h3>English Medium</h3>
+                    <p>Comprehensive English medium instruction available for all classes from Nursery to 12th.</p>
+                </div>
+                <div class="wing-card">
+                    <div class="wing-icon"><i data-lucide="monitor"></i></div>
+                    <h3>Smart Classrooms</h3>
+                    <p>Interactive digital classrooms with projectors and modern learning tools.</p>
+                </div>
+                <div class="wing-card">
+                    <div class="wing-icon"><i data-lucide="bus"></i></div>
+                    <h3>Transport Facility</h3>
+                    <p>Safe and reliable transport covering Manglaur and surrounding areas.</p>
+                </div>
+                <div class="wing-card">
+                    <div class="wing-icon"><i data-lucide="trees"></i></div>
+                    <h3>Playground</h3>
+                    <p>Dedicated playground for sports and physical development activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>

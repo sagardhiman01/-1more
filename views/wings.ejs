@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+    <section id="wings-page" class="sub-page">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Campuses</span>
+                <h1>Dedicated Wings for Every Stage</h1>
+                <p>CBSE Board Pattern | UK Board Affiliated | English Medium</p>
+            </div>
+
+            <div class="wing-detail-grid">
+                <% if (wings && wings.length > 0) { %>
+                    <% wings.forEach((wing, index) => { %>
+                        <div class="wing-detail-card card-lift <%= index % 2 === 1 ? 'reverse' : '' %>">
+                            <div class="wing-image">
+                                <img src="<%= wing.image_path %>" alt="<%= wing.name %>" class="stack-img main">
+                            </div>
+                            <div class="wing-content">
+                                <span class="section-tag"><%= wing.subtitle %></span>
+                                <h2><%= wing.name %></h2>
+                                <p><%= wing.description %></p>
+                                <ul class="wing-features">
+                                    <% wing.features.forEach(feat => { %>
+                                        <li><i data-lucide="check"></i> <%= feat %></li>
+                                    <% }); %>
+                                </ul>
+                                <div class="contact-card">
+                                    <i data-lucide="phone"></i>
+                                    <div>
+                                        <span>Helpline</span>
+                                        <p><%= wing.phone %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>

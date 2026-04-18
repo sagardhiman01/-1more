@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+    <section id="admin-page" class="sub-page">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Admin Dashboard</span>
+                <h1>School Records & Enquiries</h1>
+                <p>Manage incoming admission requests and parent enquiries here.</p>
+            </div>
+
+            <div class="admin-data-section">
+                <!-- Admission Requests -->
+                <div class="admin-table-container">
+                    <h2>Admission Requests</h2>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Father's Name</th>
+                                <th>Applying Class</th>
+                                <th>Phone</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (admissions && admissions.length > 0) { %>
+                                <% admissions.forEach(admission => { %>
+                                    <tr>
+                                        <td><%= admission.student_name %></td>
+                                        <td><%= admission.father_name %></td>
+                                        <td><%= admission.apply_class %></td>
+                                        <td><%= admission.phone %></td>
+                                        <td><%= admission.created_at %></td>
+                                    </tr>
+                                <% }); %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="5" class="no-data">No admission requests yet.</td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Contact Messages -->
+                <div class="admin-table-container">
+                    <h2>Contact Enquiries</h2>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Phone/Email</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (messages && messages.length > 0) { %>
+                                <% messages.forEach(msg => { %>
+                                    <tr>
+                                        <td><%= msg.name %></td>
+                                        <td><%= msg.subject %></td>
+                                        <td><%= msg.message %></td>
+                                        <td><%= msg.email %></td>
+                                        <td><%= msg.created_at %></td>
+                                    </tr>
+                                <% }); %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="5" class="no-data">No messages yet.</td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>

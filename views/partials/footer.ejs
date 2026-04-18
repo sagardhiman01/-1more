@@ -1,0 +1,30 @@
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/img/logo.png" alt="DMIC Logo">
+                    <span><%= settings.school_name %></span>
+                </div>
+                <p style="font-style: italic; color: var(--accent); font-size: 1.1rem;"><%= settings.motto %></p>
+                <p style="font-size: 0.9rem;">CBSE Board Pattern | UK Board Affiliated | English Medium</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; margin-top: 0.5rem;">
+                    <a href="<%= settings.insta_url %>" target="_blank" style="color: var(--accent); text-decoration: none;">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="<%= settings.youtube_url %>" target="_blank" style="color: var(--accent); text-decoration: none;">
+                        <i data-lucide="youtube"></i>
+                    </a>
+                </div>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">Senior Wing: 8126242572 | Junior Wing: 6396201230 | DMIC Branch (Landhaura): 8755431982</p>
+                <p>&copy; 2026 <%= settings.school_short_name %> Manglaur. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

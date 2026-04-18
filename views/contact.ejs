@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+
+    <section id="contact-page" class="sub-page">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get in Touch</span>
+                <h1>Contact Us</h1>
+                <p>Reach out to <%= settings.school_short_name %> directly through our campus helplines.</p>
+            </div>
+
+            <div class="contact-grid grid-2">
+                <div class="contact-details">
+                    <div class="detail-item-list">
+                        <div class="detail-item">
+                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <span>Senior Wing (Main Campus)</span>
+                                <p>Mundlana Road, Manglaur, Haridwar, Uttarakhand</p>
+                                <p style="font-weight: 600; color: var(--accent-dark); margin-top: 0.25rem;">📞 8126242572</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <span>Junior Wing</span>
+                                <p>Sarafa Bazar, Manglaur, Haridwar, Uttarakhand</p>
+                                <p style="font-weight: 600; color: var(--accent-dark); margin-top: 0.25rem;">📞 6396201230</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <span>DMIC Branch (Landhaura)</span>
+                                <p>Landhaura, Distt. Haridwar, Uttarakhand</p>
+                                <p style="font-weight: 600; color: var(--accent-dark); margin-top: 0.25rem;">📞 8755431982</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i data-lucide="instagram"></i>
+                            <div>
+                                <span>Official Instagram</span>
+                                <p><a href="<%= settings.insta_url %>" target="_blank" style="color: var(--accent-dark); font-weight: 600;">Follow @dmic_group_manglour</a></p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i data-lucide="youtube"></i>
+                            <div>
+                                <span>Official YouTube</span>
+                                <p><a href="<%= settings.youtube_url %>" target="_blank" style="color: var(--accent-dark); font-weight: 600;">Subscribe to Durga Modern 1917</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <% if (msg) { %>
+                        <div class="alert alert-success"><%= msg %></div>
+                    <% } %>
+                    <form action="/contact" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email/Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>
