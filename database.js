@@ -111,8 +111,7 @@ db.serialize(() => {
         if (row && row.count === 0) {
             const wings = [
                 ['Senior Wing (Mangalore)', 'Mudlana Road', 'The classes are running in senior wing 6 to 12. Modern infrastructure with advanced labs.', '8126242572', '/img/hero.png', '["Classes 6th to 12th", "Advanced Science & Commerce Streams", "Modern Robotics Lab", "English Medium"]'],
-                ['Junior Wing (Mangalore)', 'Sarafa Bazar', 'The classes are running in junior wing nursery to 8th. Nurturing young minds in a safe environment.', '6396201230', '/img/smart_class.png', '["Nursery to 8th Class", "Smart Classrooms", "Creative Activity Zone", "English Medium"]'],
-                ['Moon Kingdom Public School', 'Landhaura Branch', 'Bringing excellence to Landhaura since 2002 with the motto "A Ray of Hope".', '8755431982', '/img/fest.png', '["Nursery to Class 12", "Holistic Development", "Dharohar Cultural Fest", "Modern Infrastructure"]']
+                ['Junior Wing (Mangalore)', 'Sarafa Bazar', 'The classes are running in junior wing nursery to 8th. Nurturing young minds in a safe environment.', '6396201230', '/img/smart_class.png', '["Nursery to 8th Class", "Smart Classrooms", "Creative Activity Zone", "English Medium"]']
             ];
             const stmt = db.prepare("INSERT INTO campus_wings (name, subtitle, description, phone, image_path, features) VALUES (?, ?, ?, ?, ?, ?)");
             wings.forEach(w => stmt.run(w));
